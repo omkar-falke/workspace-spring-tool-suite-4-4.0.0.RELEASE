@@ -1,0 +1,2 @@
+server.port=9850
+spring.mvc.view.suffix=.jsp

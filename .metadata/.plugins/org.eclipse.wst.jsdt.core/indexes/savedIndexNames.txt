@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+C:\Users\omkar\Documents\workspace-spring-tool-suite-4-4.0.0.RELEASE\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+234783055.index
+4186474951.index
+716671578.index
+2449206521.index
+1700899935.index

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;ConsumeWebServiceDemo-2&apos;&#x0D;&#x0A;- Original project: &apos;ConsumeWebServiceDemo-2&apos;&#x0D;&#x0A;- Original element: &apos;com.cjc.main.repository.HomeRepository.java&apos;" description="Delete element" element1="/src\/main\/java&lt;com.cjc.main.repository{HomeRepository.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1562175853304" subPackages="false" version="1.0"/>
+</session>

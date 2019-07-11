@@ -1,0 +1,18 @@
+package com.cjc.main;
+
+import java.nio.file.Path;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+	
+	GetMapping(Path="/hello")
+	public String helloWorld()
+	{
+		return "Hello World";
+		
+	}
+
+}

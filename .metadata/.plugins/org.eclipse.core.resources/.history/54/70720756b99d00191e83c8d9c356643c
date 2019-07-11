@@ -1,0 +1,11 @@
+package com.cjc.main.model;
+
+public class Student {
+	private int rollno;
+	private String name;
+	private String address;
+	private String username;
+	private String password;
+	
+
+}

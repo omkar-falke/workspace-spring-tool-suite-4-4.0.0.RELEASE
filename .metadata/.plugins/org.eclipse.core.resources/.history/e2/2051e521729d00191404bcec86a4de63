@@ -1,0 +1,84 @@
+package com.cjc.main.controller;
+
+import java.net.URI;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.cjc.main.model.Student;
+import com.cjc.main.service.ServiceDemo;
+
+@CrossOrigin("*")
+@RestController
+public class HomeController {
+	
+	@Autowired
+	ServiceDemo sd;
+	@GetMapping(value="/getData")
+	public List<Student>getData()
+	{
+		List<Student>list1=sd.getData();	
+		return list1;	
+	}
+	
+	@PostMapping(value="/setData")
+	public String registerData(@RequestBody Student s){
+		sd.setData(s);
+		return "Registration Successfull" ;	
+	}
+	
+	@PutMapping(value="/updateData/{rollno}")
+	public String updateData(@PathVariable(name="rollno")int rollno,@RequestBody Student s)
+	{
+		sd.updateData(s);
+		return "Data Is Updated.";
+	}
+	
+	@DeleteMapping(value="/deleteData/{rollno}")
+	public String deleteData(@PathVariable(name="rollno")int rollno,@RequestBody Student s)
+	{
+		sd.deleteData(rollno);
+		return "Data is Deleted";
+		
+	}
+	
+	@PostMapping(value="/checkLogin/{username}")
+	public String checkLogin(@PathVariable(name="username")String username,@PathVariable(name="password")String password)
+	{
+		if(username.equals("admin"))
+		{
+		return "Login Successful...";
+		}
+		else
+		{
+			return "Please Check Login Creaditional";
+		}
+		
+	}
+	
+	
+	
+	@PostMapping("/Data")
+	public ResponseEntity<Object> createUsers(@RequestBody Student s)
+	{
+		Student saveUser= sd.setData(s);
+		
+		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{rollno}")
+				.buildAndExpand(saveUser.getRollno())
+				.toUri();
+		return ResponseEntity.created(location).build();
+		
+	}
+	
+}

@@ -1,0 +1,32 @@
+package com.cjc.main.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.cjc.main.model.Student;
+import com.cjc.main.repository.CrudRepo;
+
+@Service
+public class ServiceDemo{
+	@Autowired
+	CrudRepo cr;
+	public List<Student>getData()
+	{
+		List<Student> list=(List<Student>) cr.findAll();
+		return list;
+	}
+	
+	public List<Student>setData(@RequestBody Student s)
+	{
+		List<Student>li=cr.save(s);
+		return li;
+		
+	}
+	
+	
+	
+
+}

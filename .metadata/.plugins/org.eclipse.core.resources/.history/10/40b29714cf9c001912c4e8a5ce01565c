@@ -1,0 +1,66 @@
+package com.cjc.main.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cjc.main.model.Student;
+import com.cjc.main.service.ServiceDemo;
+
+@RestController
+public class HomeController {
+	
+	@Autowired
+	ServiceDemo sd;
+	@GetMapping(value="/getData")
+	public List<Student>getData()
+	{
+		List<Student>list1=sd.getData();	
+		
+	/*	Student s=new Student();
+		s.setRollno(101);
+		s.setfName("omkar");
+		s.setmName("Punjaram");
+		s.setlName("Falke");
+		s.setAddress("Pune");
+		s.setMobile("9028322531");
+		s.setUsername("Omkar123");
+		s.setPassword("123456");
+		list.add(s);*/
+		return list1;	
+	}
+	
+	@PostMapping(value="/setData")
+	public List<Student>registerData(@RequestBody Student s){
+		List<Student>list=sd.setData(s);
+		return list ;	
+	}
+	
+	/*@PutMapping(value="/updateData/{rollno}")
+	public int updateData(@PathVariable(name="rollno")int rollno,@RequestBody Student s)
+	{
+		System.out.println(s.getRollno());
+		System.out.println(s.getfName());
+		return 0;
+	}
+	
+	@DeleteMapping(value="/deleteData/{rollno}")
+	public String deleteData(@PathVariable(name="rollno")int rollno,@RequestBody Student s)
+	{
+		
+		
+		return "Data is Deleted";
+		
+	}*/
+	
+
+	
+	
+}

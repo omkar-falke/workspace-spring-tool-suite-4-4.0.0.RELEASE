@@ -1,0 +1,33 @@
+package com.cjc.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.configurers.provisioning.InMemoryUserDetailsManagerConfigurer;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+@Configuration
+@EnableWebSecurity
+public class AppSecurityConfig  extends WebSecurityConfigurerAdapter{
+
+	@Override
+	protected UserDetailsService userDetailsService() {
+		
+		List<UserDetails>users=new ArrayList<UserDetails>();
+		
+		list.add(User.withDefaultPasswordEncoder().username("omkar").password("omkar").roles("USER").build());
+		return new InMemoryUserDetailsManager(users);
+	}
+	
+	
+
+	
+	
+
+}

@@ -1,0 +1,13 @@
+package com.cjc.main.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class HomeController {
+
+	public String checkLogin()
+	{
+		return "Login";
+		
+	}
+}

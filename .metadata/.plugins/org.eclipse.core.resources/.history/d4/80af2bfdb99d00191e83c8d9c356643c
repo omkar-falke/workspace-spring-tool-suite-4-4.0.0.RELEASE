@@ -1,0 +1,22 @@
+package com.cjc.main.serviceimpl;
+
+import java.util.List;
+
+import com.cjc.main.model.Student;
+import com.cjc.main.service.HomeService;
+
+public class Serviceimpl implements HomeService{
+
+	@Override
+	public void registerData(Student s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Student> getData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

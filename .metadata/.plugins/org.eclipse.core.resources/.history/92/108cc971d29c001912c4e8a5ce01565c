@@ -1,0 +1,52 @@
+package com.cjc.main.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cjc.main.model.Student;
+import com.cjc.main.service.ServiceDemo;
+
+@RestController
+public class HomeController {
+	
+	@Autowired
+	ServiceDemo sd;
+	@GetMapping(value="/getData")
+	public List<Student>getData()
+	{
+		List<Student>list1=sd.getData();	
+		return list1;	
+	}
+	
+	@PostMapping(value="/setData")
+	public String registerData(@RequestBody Student s){
+		sd.setData(s);
+		return "Registration Successfull" ;	
+	}
+	
+	@PutMapping(value="/updateData/{rollno}")
+	public int updateData(@PathVariable(name="rollno")int rollno,@RequestBody Student s)
+	{
+		System.out.println(s.getRollno());
+		System.out.println(s.getfName());
+		return 0;
+	}
+	
+	@DeleteMapping(value="/deleteData/{rollno}")
+	public String deleteData(@PathVariable(name="rollno")int rollno,@RequestBody Student s)
+	{
+		
+		
+		return "Data is Deleted";
+		
+	}
+	
+
+	
+	
+}

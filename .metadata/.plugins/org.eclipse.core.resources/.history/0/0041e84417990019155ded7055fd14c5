@@ -1,0 +1,18 @@
+package com.cjc.main;
+public class AppSecurityConfig{
+/*
+	@Override
+	protected UserDetailsService userDetailsService() {
+		
+		List<UserDetails>users=new ArrayList<UserDetails>();
+		
+		users.add(User.withDefaultPasswordEncoder().username("omkar").password("12345").roles("USER").build());
+		return new InMemoryUserDetailsManager(users);
+	}*/
+	
+	
+
+	
+	
+
+}
